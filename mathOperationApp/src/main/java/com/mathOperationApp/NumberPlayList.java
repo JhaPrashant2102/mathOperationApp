@@ -6,6 +6,7 @@ package com.mathOperationApp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 /**
  * @author prashant
@@ -29,11 +30,22 @@ public class NumberPlayList {
 		myNumberList.forEach(myListAction);
 		
 		/*
-		 * implicit lambda function
+		 * Implicit lambda function
 		 * used when action is to be performed multiple times
 		 */
 		myNumberList.forEach(n->{
 			System.out.println("forEach explicit lambda function respective values are ::"+n);
 		});
+		
+		/*
+		 * Implicit lambda function to to convert integer to double value
+		 * and then to print those double values
+		 */
+		Function<Integer,Double> doubleFunction = Integer::doubleValue;
+		myNumberList.forEach(n->{
+			System.out.println("forEach explicit lambda function the double value corresponding to integer is:: "+doubleFunction.apply(n));
+		});
+		
+		
 	}
 }
